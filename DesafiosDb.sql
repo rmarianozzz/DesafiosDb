@@ -268,3 +268,4 @@ SELECT Motoristas.Nome, Motoristas.CNH
 FROM Motoristas
 LEFT JOIN Viagens ON Motoristas.IdMotorista = Viagens.IdMotorista
 WHERE Viagens.IdViagem IS NULL;
+
