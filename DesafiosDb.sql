@@ -268,4 +268,75 @@ SELECT Motoristas.Nome, Motoristas.CNH
 FROM Motoristas
 LEFT JOIN Viagens ON Motoristas.IdMotorista = Viagens.IdMotorista
 WHERE Viagens.IdViagem IS NULL;
+-----------------------------------------------------------
+
+CREATE TABLE Atores(
+Id INT PRIMARY KEY IDENTITY(1,1),
+PrimeiroNome VARCHAR(20) NOT NULL,
+UltimoNome VARCHAR(20)NOT NULL,
+Genero VARCHAR(1)NOT NULL,
+);
+
+CREATE TABLE ElencoFilme(
+Id INT PRIMARY KEY IDENTITY(1,1),
+IdAtor INT,
+IdFIlme INT NOT NULL,
+Papel VARCHAR(30)NOT NULL,
+);
+
+CREATE TABLE Filmess (
+Id INT PRIMARY KEY IDENTITY(1,1),
+Nome VARCHAR(50)NOT NULL,
+Ano INT NOT NULL,
+Duracao INT NOT NULL,
+);
+
+CREATE TABLE FilmesGenero(
+Id INT PRIMARY KEY IDENTITY(1,1),
+IdGenero INT NOT NULL,
+IdFilme INT NOT NULL,
+)
+
+CREATE TABLE Generos(
+Id INT PRIMARY KEY IDENTITY(1,1),
+Genero VARCHAR(20)NOT NULL,
+)
+
+INSERT INTO Atores (PrimeiroNome, UltimoNome, Genero)
+VALUES
+('Leonardo','DiCaprio','M'),
+('Kate','Winslet','F'),
+('Brad','Pitt','M'),
+('Meryl','Streep','F');
+
+INSERT INTO Filmess (Nome, Ano, Duracao)
+VALUES
+('Titanic',1997,195),
+('Inception',2010,148),
+('Fight Club',1999,139);
+
+INSERT INTO Generos (Genero)
+VALUES
+('Drama'),
+('Ação'),
+('Romance');
+
+INSERT INTO FilmesGenero (IdGenero, IdFilme)
+VALUES
+(1,1),
+(3,1),
+(2,2),
+(1,2),
+(2,3),
+(1,3);
+
+INSERT INTO ElencoFilme (IdAtor, IdFilme, Papel)
+VALUES
+(1,1,'Jack Dawson'),
+(2,1,'Rose DeWitt Bukater'),
+(1,2,'Dom Cobb'),
+(3,3,'Tyler Durden'),
+(4,3,'Narradora');
+
+
 
